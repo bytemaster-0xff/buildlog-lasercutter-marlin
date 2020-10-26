@@ -880,7 +880,7 @@ void process_commands()
     {
     case 0: // G0
       if(Stopped == false) {
-        get_coordinates(); // For X Y Z E F
+        get_coordinates(); // For X Y Z E F into destination
         prepare_move();
         //ClearToSend();
         return;
@@ -2872,6 +2872,8 @@ void prepare_move()
 	laser.status = LASER_ON;
 	laser.fired = LASER_FIRE_E;
   }
+
+
   if (current_position[E_AXIS] == destination[E_AXIS] && laser.fired == LASER_FIRE_E){
     laser.status = LASER_OFF;
   }
